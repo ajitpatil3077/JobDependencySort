@@ -91,7 +91,10 @@ namespace ResolveJobDependency
 }
 
 
-
+/// <summary>
+/// This is a Node of a graph having details about its value and outward vertex and Indegree information
+/// </summary>
+/// <typeparam name="T"></typeparam>
 public class Node<T>
 {
     public T Value { get; set; }
@@ -105,12 +108,21 @@ public class Node<T>
         Indegree = 0;
     }
 
+    /// <summary>
+    /// Compares the node value
+    /// </summary>
+    /// <param name="o"></param>
+    /// <returns></returns>
     public override bool Equals(object o)
     {
         Node<T> graphNode = o as Node<T>;
         return this.Value.Equals(graphNode.Value);
     }
 
+    /// <summary>
+    /// Gets the Hash code
+    /// </summary>
+    /// <returns></returns>
     public override int GetHashCode()
     {
         int hash = 11;
